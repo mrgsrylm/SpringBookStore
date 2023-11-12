@@ -7,7 +7,7 @@ spring:
   jpa:
     properties:
       hibernate:
-        dialect: org.hibernate.dialect.MySQLDialect
+        dialect: org.hibernate.dialect.MySQL8Dialect
         format_sql: true
     hibernate:
       naming:
@@ -15,9 +15,9 @@ spring:
 
   datasource:
     name: mysql
-    username: ${MYSQL_USERNAME:root}
-    password: ${MYSQL_PASSWORD:password}
-    url: jdbc:mysql://${MYSQL_HOST:localhost}:${MYSQL_PORT:32773}/test
+    username: root
+    password: my-secret-pw
+    url: jdbc:mysql://localhost:3306/test
     maximum-pool-size: 5
     connection-timeout: 180000
     maximum-lifetime: 170000
