@@ -1,0 +1,29 @@
+spring:
+  config:
+    import: optional:file:.env[.properties]
+  sql:
+    init:
+      mode: always
+  jpa:
+    properties:
+      hibernate:
+        dialect: org.hibernate.dialect.MySQLDialect
+        format_sql: true
+    hibernate:
+      naming:
+        physical-strategy: org.hibernate.boot.model.naming.PhysicalNamingStrategyStandardImpl
+
+  datasource:
+    name: mysql
+    username: ${MYSQL_USERNAME:root}
+    password: ${MYSQL_PASSWORD:password}
+    url: jdbc:mysql://${MYSQL_HOST:localhost}:${MYSQL_PORT:32773}/test
+    maximum-pool-size: 5
+    connection-timeout: 180000
+    maximum-lifetime: 170000
+
+
+jwt:
+  secret: S3cR3tKeYS3cR3tKeYS3cR3tKeYS3cR3tKeYS3cR3tKeYS3cR3tKeYS3cR3tKeYS3cR3tKeYS3cR3tKeYS3cR3tKeYS3cR3tKeY
+  expireMs: 60000
+  refreshExpireMs: 120000

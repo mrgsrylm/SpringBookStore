@@ -1,0 +1,42 @@
+server:
+  port: 1221
+
+# MYSQL
+spring:
+  config:
+    import: optional:file:.env[.properties]
+  datasource:
+    url: jdbc:mysql://${MYSQL_HOST:localhost}:${MYSQL_PORT:3306}/springbookstore
+    username: ${MYSQL_USERNAME:root}
+    password: ${MYSQL_PASSWORD:password}
+  jpa:
+    hibernate:
+      ddl-auto: update
+    properties:
+      hibernate:
+        dialect: org.hibernate.dialect.MySQLDialect
+      show-sql: true
+
+# JWT
+jwt:
+  secret: SecR3tK3YSecR3tK3YSecR3tK3YSecR3tK3YSecR3tK3YSecR3tK3YSecR3tK3YSecR3tK3YSecR3tK3YSecR3tK3YSecR3tK3Y
+  expireMs: 600000 # 10 Minutes
+  refreshExpireMs: 120000
+
+# SWAGGER
+springdoc:
+  api-docs:
+    enabled: true
+  show-actuator: true
+
+management:
+  endpoints:
+    web:
+      exposure:
+        include:
+          - "*"
+          - prometheus
+  prometheus:
+    metrics:
+      export:
+        enabled: true
