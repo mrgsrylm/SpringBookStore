@@ -28,7 +28,8 @@ public class RandomUtil {
      * @return a random name string
      */
     public static String generateRandomString() {
-        return generateUUID().replace("-", "");
+        String uuidString = generateUUID().replace("-", "");
+        return uuidString.substring(0, Math.min(uuidString.length(), 20));
     }
 
     /**
